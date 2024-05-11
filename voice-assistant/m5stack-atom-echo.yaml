@@ -15,12 +15,16 @@ esp32:
 
 logger:
 api:
+  encryption:
+    key: !secret encryption_key
 ota:
 
 dashboard_import:
   package_import_url: github://esphome/firmware/voice-assistant/m5stack-atom-echo.yaml@main
 
 wifi:
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
   on_connect:
     - delay: 5s  # Gives time for improv results to be transmitted
     - ble.disable:
